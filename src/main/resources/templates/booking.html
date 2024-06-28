@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tickets - Movie Booking System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Booking System</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="booking.html">Book Tickets</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Book Your Tickets</h2>
+        <form id="bookingForm">
+            <label for="movie">Select Movie:</label>
+            <select id="movie" name="movie" required>
+                <option value="">--Select a Movie--</option>
+                <option value="movie1">Movie 1</option>
+                <option value="movie2">Movie 2</option>
+                <option value="movie3">Movie 3</option>
+            </select>
+            
+            <label for="showtime">Select Showtime:</label>
+            <select id="showtime" name="showtime" required>
+                <option value="">--Select a Showtime--</option>
+                <option value="morning">Morning</option>
+                <option value="afternoon">Afternoon</option>
+                <option value="evening">Evening</option>
+                <option value="night">Night</option>
+            </select>
+            
+            <label for="seats">Number of Seats:</label>
+            <input type="number" id="seats" name="seats" min="1" max="10" required>
+            
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const movie = document.getElementById('movie').value;
+            const showtime = document.getElementById('showtime').value;
+            const seats = document.getElementById('seats').value;
+
+            if (movie && showtime && seats) {
+                alert(`Successfully booked ${seats} seat(s) for ${movie} at ${showtime}!`);
+            } else {
+                alert('Please fill all the details.');
+            }
+        });
+    </script>
+</body>
+</html>
